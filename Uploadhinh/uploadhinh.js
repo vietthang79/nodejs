@@ -246,7 +246,7 @@ const sizeOf = require('image-size');
 
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
-        cb(null, './IMG/Upload_IMG');
+        cb(null, 'public/hinhanhtaive');
     },
     filename: (req, file, cb) => {
         let ext = path.extname(file.originalname);

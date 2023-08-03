@@ -1,6 +1,6 @@
-<h3>Thông tin chi tiết</h3>
+<h5 style="text-align: center;font-size: 25px;">Thông tin chi tiết</h5>
 <a href="/formCreate" class="btn btn-infor">Tạo sản phẩm mới</a>
-<table class="table">
+<table style="width: 100%;" class="table">
     <thead>
         <tr>
             <th scope="col">Tên sản phẩm</th>
@@ -8,7 +8,7 @@
             <th scope="col">Số lượng sản phẩm</th>
             <th scope="col">Danh mục sản phẩm</th>
             <th scope="col">Size</th>
-            <th scope="col">Color</th>
+            <th scope="col">Màu sắc</th>
             <th scope="col">Mô tả</th>
             <th scope="col">Hình</th>
 
@@ -24,7 +24,7 @@
             <td scope="col">{{this.product_size}}</td>
             <td scope="col">{{this.product_color}}</td>
             <td scope="col">{{this.product_description}}</td>
-            <td scope="col"><img src="./{{this.product_image}}" alt="" width="30%"></td>
+            <td scope="col"><img src="../public/hinhanhtaive/{{this.product_image}}" alt="" width="30px"></td>
             <td>
                 <a href="/product/update/{{this._id}}" class="btn btn-primary btn-sm" style="margin-bottom: 10px;">
                     Sửa</a>

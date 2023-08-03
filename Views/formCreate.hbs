@@ -1,188 +1,206 @@
-<!DOCTYPE html>
-
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+    rel="stylesheet" id="bootstrap-css">
 <html>
 
     <head>
-        <title>Tạo sản phẩm mới</title>
         <script
             src="https://cdn.ckeditor.com/ckeditor5/27.1.0/classic/ckeditor.js"></script>
+        <link rel="stylesheet" href="../public/css/formCreate.css">
     </head>
 
     <body>
-        <h1>Tạo sản phẩm mới</h1>
-        <form class="row g-3 needs-validation" novalidate action="/formCreate/add"
-            method="post" enctype="multipart/form-data">
+        <section class="get-in-touch">
 
-            <div class="col-md-6" style="text-align: left;">
-                <!-- Tên sản phẩm -->
-                <label class="form-label" for="product-name">Tên sản phẩm</label>
-                <input class="form-control" type="text" id="product-name"
-                    name="product_name" minlength="7" required>
-                {{!-- {{#if minlength = "6"}}
-                <div class="invalid-feedback">
-                    Nhập tối thiểu 7 ký tự.
-                </div>
-                {{/if}} --}}
-                <div class="invalid-feedback">
-                    Vui lòng không để trống dữ liệu.
-                </div>
-            </div>
+            <h1 class="title">Thêm sản phẩm</h1>
 
-            <div class="col-md-6" style="text-align: left;">
-                <!-- Giá sản phẩm -->
-                <label class="form-label" for="product-price">Giá sản phẩm</label>
-                <input class="form-control" type="number" id="product-price"
-                    name="product_price" min="1" required>
-                <div class="invalid-feedback">
-                    Vui lòng không để trống dữ liệu.
-                </div>
-            </div>
+            <form class="row g-3 needs-validation" novalidate
+                action="/formCreate/add"
+                method="post" enctype="multipart/form-data">
 
-            <div class="col-md-6" style="text-align: left;">
-                <!-- Số lượng -->
-                <label class="form-label" for="product-quantity">Số lượng</label>
-                <input class="form-control" type="number" id="product-quantity"
-                    name="product_quantity" min="1" required>
-                <div class="invalid-feedback">
-                    Vui lòng không để trống dữ liệu.
-                </div>
-            </div>
-
-            <div class="col-md-2" style="text-align: left;">
-                <!-- Danh mục -->
-                <label class="form-label" for="product-category">Danh mục</label>
-                <br>
-                <select class="form-select" id="product-category"
-                    name="product_category" required
-                    aria-label="select example">
-                    <option value>Giày</option>
-                    <option value="1">NIKE</option>
-                    <option value="2">ADIDAS</option>
-                </select>
-                <div class="invalid-feedback">
-                    Vui lòng không để trống dữ liệu.
-                </div>
-            </div>
-
-            <!-- Size -->
-            <div class="col-md-2" style="text-align: left;">
-                <label class="form-label" for="product-size">Size</label>
-                <br>
-                {{!-- <select class="form-select" id="product-size"
-                    name="product_size" required
-                    aria-label="select example">
-                    <option value>Chọn size</option>
-                    <option value="s">S</option>
-                    <option value="m">M</option>
-                    <option value="l">L</option>
-                    <option value="xxl">XXL</option>
-                </select> --}}
-
-              <div style="border: 1px solid #ccc;border-radius: 2px;padding: 2px;text-align: center;">
-                <div class="form-check">
-    
-                    <input class="form-check-input" type="checkbox" value="39" id="flexCheckChecked" name="product_size" checked>
-                    <label class="form-check-label" for="flexCheckChecked">
-                        39
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="40" id="flexCheckChecked" name="product_size">
-                    <label class="form-check-label" for="flexCheckChecked">
-                        40
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="41" id="flexCheckChecked" name="product_size">
-                    <label class="form-check-label" for="flexCheckChecked">
-                        41
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="42" id="flexCheckChecked" name="product_size">
-                    <label class="form-check-label" for="flexCheckChecked">
-                        42
-                    </label>
-                </div>
-            </div>
-
-                <div class="invalid-feedback">
-                    Vui lòng không để trống dữ liệu.
-                </div>
-            </div>
-
-            <!-- Màu sắc -->
-            <div class="col-md-2" style="text-align: left;">
-                <label class="form-label" for="product-color">Màu sắc</label>
-                <br>
-                <input type="color" id="product-color" name="product_color"
-                    required>
-                <div class="invalid-feedback">
-                    Vui lòng không để trống dữ liệu.
-                </div>
-            </div>
-
-            <div class="col-8" style="text-align: left;margin-bottom: 10px;">
-                <!-- Chi tiết sản phẩm -->
-                {{!-- <label for="product-description">Chi tiết sản phẩm:</label>
-                <br>
-                <textarea id="product-description" name="product_description"></textarea>
-                --}}
-
-                <label for="product-description">Chi tiết sản phẩm:</label>
-                {{!-- <form method action> --}}
-                    <textarea name="product_description" id="editor" required></textarea>
+                <div class="col-md-6" style="text-align: left;">
+                    <!-- Tên sản phẩm -->
+                    <label class="form-label" for="product-name">Tên sản phẩm</label>
+                    <input class="form-control" type="text" id="product-name"
+                        name="product_name" minlength="7" required>
+                    {{!-- {{#if minlength = "6"}}
+                    <div class="invalid-feedback">
+                        Nhập tối thiểu 7 ký tự.
+                    </div>
+                    {{/if}} --}}
                     <div class="invalid-feedback">
                         Vui lòng không để trống dữ liệu.
                     </div>
+                </div>
+
+                <div class="col-md-6" style="text-align: left;">
+                    <!-- Giá sản phẩm -->
+                    <label class="form-label" for="product-price">Giá sản phẩm</label>
+                    <input class="form-control" type="number" id="product-price"
+                        name="product_price" min="1" required>
+                    <div class="invalid-feedback">
+                        Vui lòng không để trống dữ liệu.
+                    </div>
+                </div>
+
+                <div class="col-md-6" style="text-align: left;">
+                    <!-- Số lượng -->
+                    <label class="form-label" for="product-quantity">Số lượng</label>
+                    <input class="form-control" type="number"
+                        id="product-quantity"
+                        name="product_quantity" min="1" required>
+                    <div class="invalid-feedback">
+                        Vui lòng không để trống dữ liệu.
+                    </div>
+                </div>
+
+                <div class="col-md-2" style="text-align: left;">
+                    <!-- Danh mục -->
+                    <label class="form-label" for="product-category">Danh mục</label>
                     <br>
-                    {{!-- <input type="submit" class="btn btn-primary"
-                        value="Save"> --}}
-                    {{!-- </form> --}}
-            </div>
-
-            <!-- Hình ảnh -->
-            <div style="margin-bottom: 20px;text-align: left;">
-                <div class="col-4">
-                    <label class="form-label" for="product-image">Hình ảnh</label>
-                    <input class="form-control" type="file" name="product_image"
-                        multiple required>
+                    <select class="form-select" id="product-category"
+                        name="product_category" required
+                        aria-label="select example">
+                        <option value>Giày</option>
+                        <option value="1">NIKE</option>
+                        <option value="2">ADIDAS</option>
+                    </select>
                     <div class="invalid-feedback">
                         Vui lòng không để trống dữ liệu.
                     </div>
                 </div>
-            </div>
-            <br>
-            <!-- Hoạt động mặc định -->
-            <div style="margin-bottom: 15px;">
-                <div class="col-1">
-                    {{!-- <label class="form-label" for="product-default">Hoạt
-                        động</label>
-                    <input type="checkbox" id="flexSwitchCheckChecked"
-                        name="product_default" checked> --}}
-                    <div class="form-check form-switch"
-                        style="display: inline-flex;padding-left: 10px;">
-                        <label style="margin-left: -20px;"
-                            class="form-check-label"
-                            for="flexSwitchCheckChecked">Hoạt
-                            động</label>
 
-                        <input style="margin-left: 20px;padding-left: 20px;"
-                            class="form-check-input" type="checkbox"
-                            id="flexSwitchCheckChecked" checked>
+                <!-- Size -->
+
+                <fieldset style="margin-left: 8px;">
+                    <label class="form-label" for="product-size">Size</label>
+                    <div style="display: inline-flex;">
+                        <div class="form-check"
+                            style="margin-left:15px; margin-right: 20px;">
+
+                            <input class="form-check-input" type="checkbox"
+                                value="39" id="flexCheckChecked"
+                                name="product_size"
+                                checked>
+                            <label class="form-check-label"
+                                for="flexCheckChecked">
+                                39
+                            </label>
+                        </div>
+                        <div class="form-check" style="margin-right: 20px;">
+                            <input class="form-check-input" type="checkbox"
+                                value="40" id="flexCheckChecked"
+                                name="product_size">
+                            <label class="form-check-label"
+                                for="flexCheckChecked">
+                                40
+                            </label>
+                        </div>
+                        <div class="form-check" style="margin-right: 20px;">
+                            <input class="form-check-input" type="checkbox"
+                                value="41" id="flexCheckChecked"
+                                name="product_size">
+                            <label class="form-check-label"
+                                for="flexCheckChecked">
+                                41
+                            </label>
+                        </div>
+                        <div class="form-check" style="margin-right: 20px;">
+                            <input class="form-check-input" type="checkbox"
+                                value="42" id="flexCheckChecked"
+                                name="product_size">
+                            <label class="form-check-label"
+                                for="flexCheckChecked">
+                                42
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="invalid-feedback">
+                        Vui lòng không để trống dữ liệu.
+                    </div>
+                </fieldset>
+
+                <!-- Màu sắc -->
+                <div class="col-md-2" style="text-align: left;">
+                    <label class="form-label" for="product-color">Màu sắc</label>
+                    <br>
+                    <input type="color" id="product-color" name="product_color"
+                        required>
+                    <div class="invalid-feedback">
+                        Vui lòng không để trống dữ liệu.
                     </div>
                 </div>
-            </div>
 
-            <div class="col-1">
-                <button style="margin-left: -27px;" class="btn btn-primary"
-                    type="submit">Lưu</button>
-            </div>
+                <!-- Chi tiết sản phẩm -->
+                <div>
+                    <div class="col-8"
+                        style="text-align: left;margin-bottom: 10px;">
+                        {{!-- <label for="product-description">Chi tiết sản
+                            phẩm:</label>
+                        <br>
+                        <textarea id="product-description"
+                            name="product_description"></textarea>
+                        --}}
+
+                        <label for="product-description">Chi tiết sản phẩm:</label>
+                        {{!-- <form method action> --}}
+                            <textarea name="product_description" id="editor"
+                                required></textarea>
+                            <div class="invalid-feedback">
+                                Vui lòng không để trống dữ liệu.
+                            </div>
+                            <br>
+                            {{!-- <input type="submit" class="btn btn-primary"
+                                value="Save"> --}}
+                            {{!-- </form> --}}
+                    </div>
+                </div>
+
+                <!-- Hình ảnh -->
+                <div style="margin-bottom: 20px;text-align: left;">
+                    <div class="col-4">
+                        <label class="form-label" for="product-image">Hình ảnh</label>
+                        <input class="form-control" type="file"
+                            name="product_image"
+                            multiple required>
+                        <div class="invalid-feedback">
+                            Vui lòng không để trống dữ liệu.
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <!-- Hoạt động mặc định -->
+                <div style="margin-bottom: 15px;">
+                    <div class="col-1">
+                        {{!-- <label class="form-label" for="product-default">Hoạt
+                            động</label>
+                        <input type="checkbox" id="flexSwitchCheckChecked"
+                            name="product_default" checked> --}}
+                        <div class="form-check form-switch"
+                            style="display: inline-flex;padding-left: 10px;">
+                            <label style="margin-left: -20px;"
+                                class="form-check-label"
+                                for="flexSwitchCheckChecked">Hoạt
+                                động</label>
+
+                            <input style="margin-left: 20px;padding-left: 20px;"
+                                class="form-check-input" type="checkbox"
+                                id="flexSwitchCheckChecked" checked>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-1">
+                    <button style="margin-left: -27px;" class="btn btn-primary"
+                        type="submit">Lưu</button>
+                </div>
+            </section>
 
             <div>
                 <div class="col-6" style="text-align: left;">
                     <p>{{tieudesp}}</p>
-                    <a href="/formCreate/xemchitietSP" style="text-decoration: none;">Xem
+                    <a href="/formCreate/xemchitietSP"
+                        style="text-decoration: none;">Xem
                         chi tiết</a>
                 </div>
             </div>

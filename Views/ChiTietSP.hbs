@@ -1,0 +1,110 @@
+<link rel="stylesheet" href="/detail.css">
+    <script src="/plusminus_btn.js"></script>
+    <script src="/Card.js"></script>
+
+<section>
+
+    <div class="chitiet flex">
+        <div class="shopping">
+            <img style="justify-content: left;cursor: pointer;"
+                src="/shopping.png" alt="shopping" width="50px" height="50px">
+            <span class="quality">1</span>
+        </div>
+        <div class="list">
+
+        </div>
+
+
+        <div class="left">
+            <div class="main_image">
+                <img
+                    src="/{{s.Hinh}}"
+                    style="margin: 30px 0px 0px 30px;"
+                    width="500px"
+                    height="400px"
+                    class="slide"
+                    alt="...">
+            </div>
+            <div class="option flex" style="justify-content:
+                space-between;margin-top: 40px;">
+                <img src="/pro_shose2.png" onclick="img('/pro_shose2.png')">
+                <img src="/pro_shose1.png" onclick="img('/pro_shose1.png')">
+                <img src="/pro_shose3.png" onclick="img('/pro_shose3.png')">
+                <img src="/pro_shose4.png" onclick="img('/pro_shose4.png')">
+                <img src="/pro_shose9.png" onclick="img('/pro_shose9.png')">
+            </div>
+        </div>
+        <div class="right">
+            <div>
+                <span style="color: #b9b7b7; text-transform:
+                    uppercase;font-size: 13px;">{{s.LoaiSP}}</span>
+                <p style="background-color: #e3e3e3; height: 1px; width:
+                    100%;margin-top: 10px;"></p>
+                <h2 class="card-title">{{s.TenSP}}</h2>
+                <p style="background-color: #e3e3e3; height: 1px; width:
+                    100%;margin-top: 20px;"></p>
+                <p style="padding-top: 15px;font-weight: bold ;color: red;
+                    font-size: 20px;"
+                    class="card-text">{{s.GiaSP}}.đ</p>
+                <p style="background-color: #e3e3e3; height: 1px; width:
+                    100%;margin-top: 10px;"></p>
+                <div style="cursor: pointer;width: 210px;" class="color flex">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <div class="quantity buttons_added">
+                    <input type="button" value="-" class="minus">
+
+                    <input
+                        type="number" step="1" min="1" max="" name="quantity"
+                        value="1" title="Qty" class="input-text qty text"
+                        size="4"
+                        pattern="" inputmode="">
+
+                    <input type="button" value="+" class="plus">
+                </div>
+                <p style="background-color: #e3e3e3; height: 1px; width:
+                    100%;margin-top: 10px;"></p>
+                <div style="display: flex;margin-top: 10px;">
+                    <button>38</button>
+                    <button style="margin-left: 15px;">39</button>
+                    <button style="margin-left: 15px;">40</button>
+                    <button style="margin-left: 15px;">41</button>
+                    <button style="margin-left: 15px;">42</button>
+                    <button style="margin-left: 15px;">43</button>
+
+                </div>
+            </div>
+
+            <button style=" margin : 70px 0px 0px -6px;" class="button"><span>Thêm
+                    vào giỏ hàng</span>
+
+            </button>
+        </div>
+
+    </div>
+    <div class="card">
+        <h1>Card</h1>
+        <ul class="listCard"></ul>
+        <div class="checkout">
+            <div class="total">0</div>
+            <div class="CloseShopping">Close</div>
+        </div>
+    </div>
+
+    <script>
+        function img (anything) {
+            document.querySelector('.slide').src = anything;
+        }
+        function change(change) {
+            const line = document.querySelector('.home');
+            line.style.background = change;
+        }
+
+
+    </script>
+</section>

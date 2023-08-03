@@ -1,0 +1,45 @@
+<h2>Thong tin user</h2>
+
+<div class="table-responsive">
+
+    <table class="table table-hover">
+        <thead class="table-dark">
+            <tr>
+                {{!-- <th scope="col">#</th> --}}
+                <th scope="col">Ho</th>
+                <th scope="col">Ten</th>
+                <th scope="col">Username</th>
+                <th scope="col">Password</th>
+                <th scope="col">Email</th>
+                <th scope="col">Quyền</th>
+
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each user_ar}}
+            <tr>
+                {{!-- <td scope="col">{{this.id}}</td> --}}
+                <td scope="col">{{this.Ho}}</td>
+                <td scope="col">{{this.Ten}}</td>
+                <td scope="col">{{this.Username}}</td>
+                <td scope="col">{{this.Password}}</td>
+                <td scope="col">{{this.Email}}</td>
+                <td scope="col">{{this.Quyen}}</td>
+
+                <td>
+                    <a href="/dangnhap/edit/{{this._id}}" class="btn btn-primary
+                        btn-sm">
+                        Sửa</a>
+                    <a href="/dangnhap/delete/{{this._id}}" class="btn
+                        btn-secondary
+                        btn-sm" onclick="return confirm('Bạn có muốn xóa không ?')">
+                        Xóa</a>
+
+                </td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+
+</div>

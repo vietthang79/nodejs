@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Trang Chủ</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 20px;
+        text-align: center;
+      }
+
+      h1 {
+        margin-bottom: 20px;
+      }
+
+      .welcome-message {
+        font-size: 24px;
+        margin-bottom: 20px;
+      }
+
+      .user-info {
+        font-size: 18px;
+      }
+
+      .logout-button {
+        margin-top: 20px;
+        font-size: 16px;
+        padding: 10px 20px;
+        border-radius: 5px;
+        background-color: #3399ff;
+        color: white;
+        text-decoration: none;
+      }
+      .user-avatar {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Đăng nhập thành công!</h1>
+    <div class="welcome-message">Xin chào, ${req.user.displayName}!</div>
+    <div class="user-info">Thông tin tài khoản:</div>
+    <div class="user-info">ID: ${req.user.id}</div>
+    <div style="padding-bottom: 30px" class="user-info">
+      Email: ${ req.user.email }
+    </div>
+    <div class="user-info">
+      Ngày sinh: ${ req.user.birthdate || "Không có thông tin" }
+    </div>
+    <div class="user-info">
+      Giới tính: ${ req.user.gender || "Không có thông tin" }
+    </div>
+    <div class="user-info">Ảnh đại diện:</div>
+    <img class="user-avatar" src="/Views/${req.user.profilePicture}" alt="Avatar" />
+
+    <a class="logout-button" href="/logout">Đăng xuất</a>
+  </body>
+</html>

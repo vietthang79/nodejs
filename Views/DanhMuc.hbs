@@ -1,0 +1,140 @@
+<div>
+
+
+          <div class="row" style="justify-content: space-around;flex-wrap:
+            wrap;margin :0px 0px 300px 10px;">
+            <div class="row row-cols-1 row-cols-md-3 g-3">
+
+              {{#each sp_ar}}
+              <div class="card" style="width: 19rem;height: 28rem;box-shadow:
+                rgba(0, 0, 0, 0.24) 0px 3px
+                8px;margin-left:120px;cursor:pointer;">
+
+                <img
+                  class="card-img-top"
+                  src="../{{this.Hinh}}"
+                  alt="...">
+                <div class="card-body">
+                  <span style="color: #b9b7b7; text-transform:
+                    uppercase;font-size: 13px;">{{this.LoaiSP}}</span>
+                  <h5 class="card-title">{{this.TenSP}}</h5>
+                  <p style="padding-top: 5px;font-weight: bold;color: red;"
+                    class="card-text">{{this.GiaSP}}</p>
+                  <div style="display: flex;justify-content: space-around;">
+
+                    <a style="margin-left: -10px;"
+                      href="/create/ChiTietSP/{{this._id}}"> <button
+                        class="custom-btn btn-2">
+                        Xem chi tiết</button></a>
+                    <a
+                      href="/create/update/{{this._id}}"> <button
+                        class="custom-btn btn-1">
+                        Sửa</button>
+                    </a>
+
+
+                    <a href="/create/delete/{{this._id}}"> <button
+                        class="custom-btn btn-5">
+                        Xóa</button></a>
+
+
+                  </div>
+                  <!-- <a href="#" class="btn btn-primary">Xem chi tiết</a> -->
+                </div>
+              </div>
+              {{/each}}
+            </div>
+          </div>
+          <footer style="background-color: #deded5; width: 1563px; margin:
+            -150px 0px -100px 0px;">
+            <div class="container p-4">
+              <div class="row">
+                <div class="col-lg-6 col-md-12 mb-4">
+                  <h5 class="mb-3" style="letter-spacing: 2px; color: #818963;">footer
+                    content</h5>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                    Iste
+                    atque ea quis
+                    molestias. Fugiat pariatur maxime quis culpa corporis vitae
+                    repudiandae aliquam
+                    voluptatem veniam, est atque cumque eum delectus sint!
+                  </p>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                  <h5 class="mb-3" style="letter-spacing: 2px; color: #818963;">links</h5>
+                  <ul class="list-unstyled mb-0">
+                    <li class="mb-1">
+                      <a href="#!" style="color: #4f4f4f;">Frequently Asked
+                        Questions</a>
+                    </li>
+                    <li class="mb-1">
+                      <a href="#!" style="color: #4f4f4f;">Delivery</a>
+                    </li>
+                    <li class="mb-1">
+                      <a href="#!" style="color: #4f4f4f;">Pricing</a>
+                    </li>
+                    <li>
+                      <a href="#!" style="color: #4f4f4f;">Where we deliver?</a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                  <h5 class="mb-1" style="letter-spacing: 2px; color: #818963;">opening
+                    hours</h5>
+                  <table class="table" style="color: #4f4f4f; border-color:
+                    #666;">
+                    <tbody>
+                      <tr>
+                        <td>Mon - Fri:</td>
+                        <td>8am - 9pm</td>
+                      </tr>
+                      <tr>
+                        <td>Sat - Sun:</td>
+                        <td>8am - 1am</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="row mt-5 ">
+              <div class="col-12 text-center" style="margin-left: 20px;
+                font-size: 16px; letter-spacing: 2px;">
+                <p>Copyright &copy;
+                  <script>document.write(new Date().getFullYear());</script>.
+                  All
+                  Rights Reserved. &mdash; Designed with love by
+                  <a class="text-dark"
+                    href="https://www.facebook.com/profile.php?id=100029595740900">StarSportShop.com</a>
+                  <!-- License information: https://untree.co/license/ -->
+                </p>
+              </div>
+            </div>
+            <!-- Copyright -->
+
+
+          </footer>
+        </div>
+
+        {{!-- <td scope="col"></td>
+        <td scope="col">{{this.HSD}}</td>
+        <td scope="col">{{this.SoLuong}}</td>
+        <td scope="col"></td>
+        <td scope="col"></td> --}}
+
+      </div>
+
+
+
+    </div>
+  </div>
+
+
+  <script>
+function myFunction() {
+  alert("Bạn có muốn xóa sản phẩm này không ?");
+}
+</script>

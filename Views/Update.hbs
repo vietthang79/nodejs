@@ -1,0 +1,80 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+    rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!-- Include the above in your HEAD tag -->
+<div class="container" style="max-width: 1397px;">
+
+    <section class="get-in-touch">
+        <h1 class="title">Sửa sản phẩm</h1>
+        <form class="contact-form row" action="/create/CapNhat" method="post">
+            <div class="form-field col-lg-12">
+                <input name="id" id="id" value="{{s._id}}" class="input-text
+                    js-input"
+                    type="hidden"
+                    required>
+                <label class="label" for="name">ID sản phẩm</label>
+            </div>
+            <div class="form-field col-lg-12">
+                <input name="MaSP" id="MaSP" value="{{s.MaSP}}"
+                    class="input-text js-input"
+                    type="input"
+                    required>
+                <label class="label" for="name">Mã sản phẩm</label>
+            </div>
+            <div class="form-field col-lg-12">
+                <input name="TenSP" id="TenSP" value="{{s.TenSP}}"
+                    class="input-text js-input"
+                    type="input"
+                    required>
+                <label class="label" for="name">Tên sản phẩm</label>
+            </div>
+            <div class="form-field col-lg-12">
+                <input name="LoaiSP" value="{{s.LoaiSP}}" id="LoaiSP"
+                    class="input-text
+                    js-input"
+                    type="input"
+                    required>
+                <label class="label" for="name">Loại sản phẩm</label>
+            </div>
+            <div class="form-field col-lg-6 ">
+                <input id="GiaSP" value="{{s.GiaSP}}" class="input-text
+                    js-input" name="GiaSP"
+                    type="input"
+                    required>
+                <label class="label" for="price">Giá sản phẩm</label>
+            </div>
+            <div class="form-field col-lg-6 ">
+                <input id="SoLuong" class="input-text js-input"
+                    value="{{s.SoLuong}}" type="input"
+                    name="SoLuong"
+                    required>
+                <label class="label" for="price">Số lượng</label>
+            </div>
+            <div class="form-field col-lg-6">
+                <input id="HSD" class="input-text js-input" value="{{s.HSD}}"
+                    name="HSD"
+                    type="input"
+                    required>
+                <label class="label" for="hsd">HSD</label>
+            </div>
+            {{!-- <div class="form-field col-lg-6">
+                <input class="input-text js-input" name="Hinh"
+                    type="input"
+                    required>
+                <label class="label">HSD</label>
+            </div> --}}
+            {{!-- <div class="form-field col-lg-6">
+
+                <label class="label" style="margin-bottom: 20px;" for="hinh">Hình</label>
+                <input type="file" value="{{s.Hinh}}" id="Hinh" name="Hinh"
+                    style="padding-top: 10px;"/>
+            </div> --}}
+
+            <div class="form-field col-lg-12">
+                <button class="submit-btn" type="submit">Sửa sản phẩm</button>
+                <a href="/create/ViewSP">xem</a>
+            </div>
+        </form>
+    </section>
+</div>

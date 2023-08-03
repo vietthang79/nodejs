@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Realtime Chat with Text-to-Voice</title>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+      const socket = io();
+
+      // Gửi tin nhắn lên server khi nhấn nút Gửi
+      function sendMessage() {
+        const messageInput = document.getElementById("messageInput");
+        const message = messageInput.value;
+
+        // Gửi sự kiện để server biết rằng có tin nhắn mới
+        socket.emit("chat message", message);
+        messageInput.value = "";
+
+        return false;
+      }
+
+      // Nhận tin nhắn mới từ server và hiển thị lên trình duyệt
+      socket.on("chat message", function (msg) {
+        const messagesDiv = document.getElementById("messagesDiv");
+        const messageElement = document.createElement("div");
+        messageElement.textContent = msg;
+        messagesDiv.appendChild(messageElement);
+      });
+
+      // Phát giọng nói khi nhận được tin nhắn dạng giọng nói từ server
+      socket.on("text to voice", function (audioContent) {
+        const audio = new Audio("data:audio/mp3;base64," + audioContent);
+        audio.play();
+      });
+    </script>
+  </head>
+  <body>
+    <h1>Realtime Chat with Text-to-Voice</h1>
+
+    <div id="messagesDiv"></div>
+
+    <form onsubmit="return sendMessage()">
+      <input id="messageInput" autocomplete="off" />
+      <button>Gửi</button>
+    </form>
+  </body>
+</html>

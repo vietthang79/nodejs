@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+</head>
+<body>
+    <form id="uploadForm" enctype="multipart/form-data">
+    <input id="i_file" type="file" value="" />
+    <input id="i_submit" type="button" value="Submit" />
+    <div id="result"></div>
+    <div id="imageContainer"></div>
+
+    <script>
+        function generateRandomName() {
+            var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+            var randomName = '';
+            for (var i = 0; i < 8; i++) {
+                randomName += characters.charAt(Math.floor(Math.random() * characters.length));
+            }
+            return randomName;
+        }
+
+        $('#i_submit').click(function() {
+            // Kiểm tra trình duyệt có hỗ trợ File API
+            if (window.File && window.FileReader && window.FileList && window.Blob) {
+                // Lấy dung lượng và kiểu file từ input file
+                var fsize = $('#i_file')[0].files[0].size;
+                var ftype = $('#i_file')[0].files[0].type;
+                var fname = generateRandomName() + '_' + $('#i_file')[0].files[0].name;
+
+                switch (ftype) {
+                    case 'image/png':
+                    case 'image/gif':
+                    case 'image/jpeg':
+                        $('#result').html("Tệp ảnh được chấp nhận");
+                        break;
+                    default:
+                        $('#result').html('Ban chỉ được sử dụng ảnh có đuôi png, gif, jpeg');
+                }
+
+                //check dung lượng <5Mb 50000byte = 5mb
+                if (fsize < 100000) {
+                    $('#result').append("<p>Tệp ảnh: " + ftype + " | Dung lượng " + fsize + " (File: " + fname + ") File dưới 5mb</p>");
+                } else {
+                    $('#result').append("<p>Tệp ảnh: " + ftype + " | Dung lượng " + fsize + " (File: " + fname + ") Vui lòng chọn file dưới 5mb</p>");
+                }
+
+                // Đọc dữ liệu hình ảnh để lấy thông tin kích thước
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    var img = new Image();
+                    img.onload = function() {
+                        var canvas = document.createElement('canvas');
+                        var ctx = canvas.getContext('2d');
+
+                        // Resize hình ảnh với chiều rộng 200px
+                        var width = 200;
+                        var height = (img.height / img.width) * width;
+                        canvas.width = width;
+                        canvas.height = height;
+                        ctx.drawImage(img, 0, 0, width, height);
+
+                        // Chuyển đổi hình ảnh sang base64 với chất lượng 80%
+                        var resizedDataURL = canvas.toDataURL('image/jpeg', 0.8);
+
+                        // Hiển thị thông tin kích thước và base64
+                        $('#result').append("<p>Chiều rộng hình ảnh ban đầu: " + img.width + "</p>");
+                        $('#result').append("<p>Chiều rộng hình ảnh sau khi resize: " + width + "</p>");
+                        $('#result').append("<p>Dữ liệu base64 của hình ảnh sau khi resize: " + resizedDataURL + "</p>");
+
+                        // Hiển thị hình ảnh
+                        var imageElement = document.createElement('img');
+                        imageElement.src = resizedDataURL;
+                        $('#imageContainer').html(imageElement);
+                    };
+                    img.src = e.target.result;
+                };
+                reader.readAsDataURL($('#i_file')[0].files[0]);
+            }
+        });
+    </script>
+</body>
+</html>
